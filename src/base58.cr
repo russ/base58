@@ -1,4 +1,5 @@
 require "./base58/*"
+require "big_int"
 
 module Base58
   extend self
@@ -17,11 +18,11 @@ module Base58
   end
 
   def decode(base58_val : String) : Number
-    int_val = 0_u32
+    int_val = BigInt.new
     base58_val.reverse.split(//).each_with_index do |char, index|
       char_index = ALPHABET.index(char)
       raise ArgumentError.new("Value passed not a valid Base58 String.") if char_index.nil?
-      int_val += (char_index) * (BASE ** (index))
+      int_val += (char_index.to_big_i) * (BASE.to_big_i ** (index.to_big_i))
     end
     int_val
   end
