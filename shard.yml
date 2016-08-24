@@ -1,0 +1,7 @@
+name: base58
+version: 0.1.0
+
+authors:
+  - Russ Smith <russ@bashme.org>
+
+license: MIT
