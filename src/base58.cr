@@ -1,5 +1,5 @@
 require "./base58/*"
-require "big_int"
+require "big"
 
 module Base58
   extend self
