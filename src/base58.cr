@@ -5,16 +5,16 @@ module Base58
   extend self
 
   ALPHABET = "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
-  BASE = ALPHABET.size
+  BASE     = ALPHABET.size
 
   def encode(int_val : Number) : String
     base58_val = ""
     while int_val >= BASE
-      mod = int_val % BASE
+      mod = (int_val % BASE).to_i
       base58_val = ALPHABET[mod, 1] + base58_val
-      int_val = (int_val - mod) / BASE
+      int_val = ((int_val - mod) / BASE).to_big_i
     end
-    ALPHABET[int_val, 1] + base58_val
+    ALPHABET[int_val.to_i, 1] + base58_val
   end
 
   def decode(base58_val : String) : Number
