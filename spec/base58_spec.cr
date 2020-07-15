@@ -29,4 +29,12 @@ describe Base58 do
       Base58.decode(base_58).should eq(expected)
     end
   end
+
+  describe "an invalid base58 string" do
+    it "raises a decoding error" do
+      expect_raises(Base58::DecodingError) do
+        Base58.decode("INVALIDSTRING")
+      end
+    end
+  end
 end
