@@ -10,11 +10,11 @@ module Base58
   def encode(int_val : Number) : String
     base58_val = ""
     while int_val >= BASE
-      mod = (int_val % BASE).to_i
-      base58_val = ALPHABET[mod, 1] + base58_val
-      int_val = ((int_val - mod) / BASE).to_big_i
+      mod = int_val % BASE
+      base58_val = ALPHABET[mod.to_big_i, 1] + base58_val
+      int_val = (int_val - mod).divmod(BASE).first
     end
-    ALPHABET[int_val.to_i, 1] + base58_val
+    ALPHABET[int_val.to_big_i, 1] + base58_val
   end
 
   def decode(base58_val : String) : Number
