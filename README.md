@@ -1,3 +1,9 @@
+# Heads Up
+
+I wrote this shard to server a very specific purpose for me and stopped as soon as I met that need. Kirk @wyhaines has done some amazing work over here. Make sure you just use that. I will not be providing updates to this shard.
+
+https://github.com/wyhaines/base58.cr
+
 # base58
 
 Base58 utility to encode integers as strings and vice versa.
